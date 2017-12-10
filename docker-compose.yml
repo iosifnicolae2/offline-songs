@@ -20,7 +20,7 @@ services:
     volumes:
     - cantari_mailo_data:/server
     command:
-    - /install.sh
+    - /start.sh
     - '&&'
     - /bin/bash
     labels:
