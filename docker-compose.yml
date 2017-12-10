@@ -1,7 +1,5 @@
 version: '2'
 volumes:
-  cantari_mailo:
-    driver: local
   cantari_mailo_data:
     driver: local
 services:
@@ -10,7 +8,7 @@ services:
     environment:
       PORT: '3003'
     volumes:
-    - unitbv_robot_data:/server
+    - cantari_mailo_data:/server
     ports:
     - 20597:3003/tcp
   git-sync:
