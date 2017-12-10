@@ -176,3 +176,155 @@ a.song-title {
       font-size: 1rem;
     }
 }
+
+#menu-button {
+  border: 2px solid rgba(41, 37, 47, .3);
+  background: rgba(41, 37, 47, 1);
+  padding: 14px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  transition: background 750ms ease-in-out;
+  user-select: none;
+  z-index: 99991;
+  cursor: pointer;
+}
+
+.menu-open #menu-button {
+  background: rgba(41, 37, 47, 0);
+  position: fixed;
+}
+
+.hamburger {
+  position: relative;
+  width: 25px;
+  height: 20px;
+  transition: transform 750ms ease-in-out;
+}
+
+#menu-button:active .hamburger {
+  transition: transform 50ms;
+  transform: scale(.95);
+}
+
+.hamburger::before, .hamburger::after, .hamburger .inner {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 2px;
+  background: #ccc;
+  transform-origin: 100% 50%;
+  transition: all 750ms ease-in-out;
+}
+.hamburger::before {
+  top: -1px;
+}
+.hamburger .inner {
+  top: 9px;
+  transform-origin: 50% 50%;
+}
+.hamburger::after {
+  top: 19px;
+}
+
+.menu-open .hamburger {
+  transform: rotateY(-180deg);
+}
+.menu-open #menu-button:active .hamburger {
+  transform: scale(.95) rotateY(-180deg);
+}
+
+.menu-open .hamburger::before,
+.menu-open .hamburger::after,
+.menu-open .hamburger .inner {
+  background: rgba(41, 37, 47, 1);
+}
+
+.menu-open .hamburger::before {
+  transform: translate3d(-4px, 1px, 0) rotateZ(-45deg);
+}
+.menu-open .hamburger .inner {
+  transform: rotateY(-90deg);
+  transition: transform 375ms, background-color 750ms ease-in-out;
+}
+.menu-open .hamburger::after {
+  transform: translate3d(-4px, -1px, 0) rotateZ(45deg);
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 500px;
+  max-width: 100%;
+  bottom: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.menu-open nav {
+  z-index: 9999;
+  background: rgb(101, 206, 241);
+}
+
+.menu-open nav {
+  /*animation-duration: 0s;
+  animation-name: wind;
+  animation-iteration-count: infinite;*/
+}
+
+nav::before {
+  content: '';
+  position: absolute;
+  /*border-right: 1px solid rgba(41, 37, 47, .05);*/
+  top: -10px;
+  bottom: -10px;
+  left: -10px;
+  right: 0;
+}
+
+nav ul {
+  position: absolute;
+  top: 90px;
+  left: 20px;
+  pointer-events: all;
+}
+
+nav li {
+  display: block;
+  overflow: hidden;
+  font-family: 'Helvetica Neue Light', Helvetica, sans-serif;
+  font-weight: 200;
+  font-size: 26px;
+  line-height: 36px;
+  opacity: 0;
+  padding: 6px 0;
+  width: 100%;
+}
+
+nav li a {
+  color: rgb(41, 37, 47);
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+}
+
+nav li a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 274px;
+  bottom: 0;
+  height: 2px;
+  opacity: .5;
+  background: linear-gradient(to right, rgba(199, 25, 60, .4), rgba(199, 25, 60, .8));
+}
+nav li a:hover::after {
+  opacity: 1;
+}
+
+
+.menu-open nav li {
+  opacity: 1;
+}
