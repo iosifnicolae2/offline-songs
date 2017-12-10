@@ -1,7 +1,11 @@
 {
-  "name": "airhorn",
+  "name": "cantari-crestine",
   "version": "1.0.0",
-  "description": "A sample web app that lets you use your site as an airhorn.",
+  "description": "Cantari crestine pentru telefonul mobile offline.",
+  "scripts": {
+    "start": "node server_dev.js",
+    "prod": "gulp && node server_prod.js"
+  },
   "devDependencies": {
     "browser-sync": "^2.7.13",
     "comlinkjs": "^2.2.0",
@@ -25,14 +29,9 @@
     "psi": "^1.0.6",
     "run-sequence": "^1.1.1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/GoogleChrome/airhorn.git"
-  },
-  "author": "Paul Kinlan",
+  "author": "Nicolae Iosif",
   "license": "Apache 2",
-  "bugs": {
-    "url": "https://github.com/GoogleChrome/airhorn/issues"
-  },
-  "homepage": "https://github.com/GoogleChrome/airhorn#readme"
+  "dependencies": {
+    "express": "^4.16.2"
+  }
 }

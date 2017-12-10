@@ -1,13 +1,13 @@
 # Air Horn
 
-A sample web app that lets you use your site as an airhorn. 
+A sample web app that lets you use your site as an airhorn.
 
 It demonstrates simple offline usage combined with simple audio looping via web audio.
 
 ## Installing
 
-Whilst you don't need to use the build process, if you want to host this publicly it is recommended 
-that you optimise all the assets for deployment and as such it is recommended that you run the 
+Whilst you don't need to use the build process, if you want to host this publicly it is recommended
+that you optimise all the assets for deployment and as such it is recommended that you run the
 following command in the current working directory:
 
     npm install
@@ -27,7 +27,7 @@ simple execute the following command from the root directory:
 There are number of ways to run Airhorner.  The simplest (if you have Python installed) is to
 start a simple web server up is to use Python's SimpleHTTPServer.  Run the following:
 
-    cd app && python -m SimpleHTTPServer 3000
+    npm start
 
 This will just load the existing contents of the directory up and it won't support things like live
 reload and inline optimizations.  To run the project with optimizations in place and to support live reload

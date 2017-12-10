@@ -1,6 +1,6 @@
 {
-  "name": "The Air Horner",
-  "short_name": "Air Horner",
+  "name": "Cantari crestine",
+  "short_name": "Cantari crestine",
   "icons": [{
         "src": "images/touch/Airhorner_128.png",
         "type": "image/png",
@@ -28,7 +28,7 @@
         "type": "image/png",
         "sizes": "512x512"
       }],
-  "start_url": "/?homescreen=1",
+  "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "background_color": "#2196F3",

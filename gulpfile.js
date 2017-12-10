@@ -74,11 +74,11 @@ gulp.task('fonts', function() {
     .pipe($.size({title: 'fonts'}));
 });
 
-// Copy Sounds To Dist
+// Copy Assets To Dist
 gulp.task('sounds', function() {
-  return gulp.src(['app/sounds/**'])
-    .pipe(gulp.dest('dist/sounds'))
-    .pipe($.size({title: 'sounds'}));
+  return gulp.src(['app/assets/**'])
+    .pipe(gulp.dest('dist/assets'))
+    .pipe($.size({title: 'assets'}));
 });
 
 // Compile and Automatically Prefix Stylesheets
@@ -198,7 +198,7 @@ gulp.task('pagespeed', pagespeed.bind(null, {
   // free (no API key) tier. You can use a Google
   // Developer API key if you have one. See
   // http://goo.gl/RkN0vE for info key: 'YOUR_API_KEY'
-  url: 'https://example.com',
+  url: 'https://cantari.mailo.ml',
   strategy: 'mobile'
 }));
 

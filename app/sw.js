@@ -1,7 +1,6 @@
 /*
  *
- *  Air Horner
- *  Copyright 2015 Google Inc. All rights reserved.
+ *  cantari-crestine
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -23,15 +22,15 @@ let version = '0.6.2';
 self.addEventListener('install', e => {
   let timeStamp = Date.now();
   e.waitUntil(
-    caches.open('airhorner').then(cache => {
+    caches.open('cantari-crestine').then(cache => {
       return cache.addAll([
         `/`,
         `/index.html?timestamp=${timeStamp}`,
         `/styles/main.css?timestamp=${timeStamp}`,
+        `/scripts/sammy.min.js?timestamp=${timeStamp}`,
         `/scripts/main.min.js?timestamp=${timeStamp}`,
-        `/scripts/comlink.global.js?timestamp=${timeStamp}`,
-        `/scripts/messagechanneladapter.global.js?timestamp=${timeStamp}`,
-        `/sounds/airhorn.mp3?timestamp=${timeStamp}`
+        `/scripts/jquery-3.2.1.min.js?timestamp=${timeStamp}`,
+        `/api/view/all?timestamp=${timeStamp}`
       ])
       .then(() => self.skipWaiting());
     })
