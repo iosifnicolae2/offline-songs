@@ -1,7 +1,13 @@
 const express = require('express');
 const app = express();
 const path    = require("path");
-const songs_json = require('./dist/assets/songs.json');
+
+var gulp = require('./gulpfile.js').gulp;
+var songs_json = {};
+
+gulp.start('default', function() {
+  songs_json = require('./dist/assets/songs.json')
+});
 
 app.get('/api/view/all', function(req, res) {
   return res.json(songs_json)
