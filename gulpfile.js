@@ -24,6 +24,8 @@ var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 var del = require('del');
 var runSequence = require('run-sequence');
+var url = require('url');
+var proxy = require('proxy-middleware');
 var browserSync = require('browser-sync');
 var pagespeed = require('psi');
 var reload = browserSync.reload;
@@ -163,7 +165,8 @@ gulp.task('serve', ['styles'], function() {
     // Note: this uses an unsigned certificate which on first access
     //       will present a certificate warning in the browser.
     // https: true,
-    server: ['.tmp', 'app']
+    port: 4000,
+    proxy: 'http://localhost:3005'
   });
 
   gulp.watch(['app/**/**/**/*.html'], reload);
