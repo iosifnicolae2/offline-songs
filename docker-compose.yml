@@ -1,0 +1,27 @@
+version: '2'
+volumes:
+  cantari_mailo:
+    driver: local
+  cantari_mailo_data:
+    driver: local
+services:
+  node-app2:
+    image: iosifnicolae2/node-app-simple:latest
+    environment:
+      PORT: '3003'
+    volumes:
+    - unitbv_robot_data:/server
+    ports:
+    - 20597:3003/tcp
+  git-sync:
+    image: iosifnicolae2/git-sync-python
+    environment:
+      GIT_SYNC_REPO: https://github.com/iosifnicolae2/offline-songs
+    volumes:
+    - cantari_mailo_data:/server
+    command:
+    - /install.sh
+    - '&&'
+    - /bin/bash
+    labels:
+      io.rancher.container.start_once: 'true'
