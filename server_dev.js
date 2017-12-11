@@ -20,7 +20,7 @@ app.get('/api/view', function(req, res) {
 app.use(express.static('app'))
 
 app.use('*', function(req, res) {
-  request('localhost:4000').pipe(res);
+  request('http://localhost:4000').pipe(res);
 })
 
 app.listen(3005, () => console.log('Server listen on port 3005 for debugging purpouse!'))

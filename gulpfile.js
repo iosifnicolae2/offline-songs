@@ -77,8 +77,8 @@ gulp.task('fonts', function() {
 });
 
 // Copy Assets To Dist
-gulp.task('sounds', function() {
-  return gulp.src(['app/assets/**'])
+gulp.task('assets', function() {
+  return gulp.src(['app/assets/songs.json'])
     .pipe(gulp.dest('dist/assets'))
     .pipe($.size({title: 'assets'}));
 });
@@ -191,7 +191,7 @@ gulp.task('serve:dist', ['default'], function() {
 
 // Build Production Files, the Default Task
 gulp.task('default', ['clean'], function(cb) {
-  runSequence('styles', ['html', 'scripts', 'styles', 'images', 'fonts', 'sounds', 'copy', 'copy-workerscripts'], cb);
+  runSequence('styles', ['html', 'scripts', 'styles', 'images', 'fonts', 'assets', 'copy', 'copy-workerscripts'], cb);
 });
 
 // Run PageSpeed Insights
