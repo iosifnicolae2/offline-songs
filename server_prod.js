@@ -5,12 +5,10 @@ const path    = require("path");
 var gulp = require('./gulpfile.js').gulp;
 var songs_json = {};
 
-gulp.start('default', function() {
-  songs_json = require('./dist/assets/songs.json')
-});
+gulp.start('default');
 
 app.get('/api/view/all', function(req, res) {
-  return res.json(songs_json)
+  return res.sendFile(path.join(__dirname+'/dist/assets/songs.json'))
 })
 
 app.get('/api/view', function(req, res) {
