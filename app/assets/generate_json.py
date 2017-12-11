@@ -21,15 +21,15 @@ for album in albums:
 
         song_file = "%s/%s" %(album_dir, song)
         with open(song_file, 'rb') as file:
-            # print(song_file)
+            print(song_file)
             rawdata = b''.join(file.readlines())
-            song_text = chardet.detect(rawdata)['encoding']
+            song_charset = chardet.detect(rawdata)['encoding']
         songs_json[song_id] = {
     		"id": song_id,
             "name": song.replace('.txt', ''),
     		"category": album,
     		"number": "",
-    		"text": rawdata.decode(song_text)
+    		"text": rawdata.decode(song_charset)
     	}
         print(song_id)
         song_id =  song_id + 1

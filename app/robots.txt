@@ -1,4 +1,5 @@
 # www.robotstxt.org/
+# Version: 2
 
 # Allow crawling of all content
 User-agent: *

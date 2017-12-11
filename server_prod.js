@@ -13,7 +13,7 @@ app.get('/api/view/all', function(req, res) {
 
 app.get('/api/view', function(req, res) {
   var id = req.query.id;
-  return res.json(songs_json[id])
+  return res.json(require('./dist/assets/songs.json')[id])
 })
 
 app.use(express.static('app'))

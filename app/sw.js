@@ -17,7 +17,7 @@
  */
 
 // Version 0.6.2
-let version = '0.6.2';
+let version = '0.6.3';
 
 self.addEventListener('install', e => {
   let timeStamp = Date.now();
@@ -37,14 +37,37 @@ self.addEventListener('install', e => {
   )
 });
 
-self.addEventListener('activate',  event => {
-  event.waitUntil(self.clients.claim());
+// self.addEventListener('activate',  event => {
+//   event.waitUntil(self.clients.claim());
+// });
+
+self.addEventListener('activate', function(event) {
+  event.waitUntil(
+    caches.keys().then(function(cacheNames) {
+      return Promise.all(
+        cacheNames.filter(function(cacheName) {
+          // Return true if you want to remove this cache,
+          // but remember that caches are shared across
+          // the whole origin
+        }).map(function(cacheName) {
+          return caches.delete(cacheName);
+        })
+      );
+    })
+  );
 });
 
-self.addEventListener('fetch', event => {
+
+self.addEventListener('fetch', function(event) {
   event.respondWith(
-    caches.match(event.request, {ignoreSearch:true}).then(response => {
-      return response || fetch(event.request);
+    caches.open('cantari-crestine').then(function(cache) {
+      return cache.match(event.request).then(function(response) {
+        var fetchPromise = fetch(event.request).then(function(networkResponse) {
+          cache.put(event.request, networkResponse.clone());
+          return networkResponse;
+        })
+        return response || fetchPromise;
+      })
     })
   );
 });
