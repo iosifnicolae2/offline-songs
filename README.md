@@ -1,8 +1,6 @@
-# Air Horn
+# Offline Songs
 
-A sample web app that lets you use your site as an airhorn.
-
-It demonstrates simple offline usage combined with simple audio looping via web audio.
+A sample web app that lets you browse a list of songs on your mobile even without a permanent internet connection.
 
 ## Installing
 
